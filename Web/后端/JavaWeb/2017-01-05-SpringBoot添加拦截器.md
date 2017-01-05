@@ -2,7 +2,9 @@
 
 ##	声明拦截器
 
-集成`HandlerInterceptorAdapter`类实现拦截器功能,有3个主要方法可以重写,分别是`preHandle`,`postHandle`,`afterComplete`分别是请求过程中的声明周期,主要重写`preHandle`方法,存在`boolean`类型的返回值,方法返回`false`时则拦截请求,再通过对**HttpServletResponse**进行操作返回需要返回的值
+​	集成`HandlerInterceptorAdapter`类实现拦截器功能,有3个主要方法可以重写`preHandle`,`postHandle`,`afterComplete`,三个方法分别是请求过程中的声明周期.
+
+​	主要重写`preHandle`方法,存在`boolean`类型的返回值,方法返回`false`时则拦截请求,再通过对**HttpServletResponse**进行操作返回需要返回的值
 
 ```java
 @Component
@@ -39,9 +41,7 @@ public class AuthorizationInterceptor extends HandlerInterceptorAdapter {
 
 ​	声明一个类集成`WebMvcConfigurerAdapter`,添加`Configuration`告诉Spring这是一个配置类	
 
-重写`addInterceptors`来注册自定义的拦截器
-
-​	`addPathPatterns`方法传入需要进行拦截处理的URL路径, `/**`代表该路径下的所有接口都要经过拦截器处理
+​	重写`addInterceptors`来注册自定义的拦截器`addPathPatterns`方法传入需要进行拦截处理的URL路径, `/**`代表该路径下的所有接口都要经过拦截器处理
 
 ```
 @Configuration
